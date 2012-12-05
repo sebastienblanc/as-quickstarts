@@ -42,18 +42,6 @@ test('Build 0 member Rows', function() {
 
 module('Member Restful Calls');
 
-asyncTest('Request current member list', function() {
-    expect(1);
-
-    $.ajax({
-        url: "rest/members",
-        success: function(data) {
-            ok($(data).length, "Initial member returned");
-            start();
-        }
-    });
-});
-
 test('Register a new member', function() {
     ok(1==1,"TODO");
 });
