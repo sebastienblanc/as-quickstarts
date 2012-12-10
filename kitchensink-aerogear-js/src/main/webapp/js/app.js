@@ -18,29 +18,17 @@
 Core JavaScript functionality for the application.  Performs the required
 Restful calls, validates return values, and populates the member table.
  */
-var pipeline = AeroGear.Pipeline(),
-    memberPipe = pipeline.add({
+var memberPipe  = AeroGear.Pipeline([{
         name: "members",
         settings: {
             baseURL: "rest/"
         }
-    } ).pipes.members;
+    }
+ ]).pipes.members;
 
-var dm = AeroGear.DataManager(["membersStore"]);
+
+var dm = AeroGear.DataManager("membersStore");
 MemberStore = dm.stores["membersStore"];
-
-/* Get the member template */
-//deprecated - moving template to index.html
-function getMemberTemplate() {
-    $.ajax({
-        url: "tmpl/member.tmpl",
-        dataType: "html",
-        success: function( data ) {
-            $( "head" ).append( data );
-            updateMemberTable();
-        }
-    });
-}
 
 /* Builds the updated table for the member list */
 function buildMemberRows() {

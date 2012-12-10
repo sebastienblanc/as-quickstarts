@@ -32,7 +32,7 @@ test('Build 2 Member Rows', function() {
 
 test('Build 0 member Rows', function() {
     expect(1);
-
+    MemberStore.emptyData();
     MemberStore.save([]);
 
     var html = buildMemberRows();
